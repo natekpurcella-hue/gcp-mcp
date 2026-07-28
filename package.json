@@ -1,0 +1,29 @@
+{
+  "name": "gcp-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Google Cloud Platform — projects, IAM, and API management",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "gcp-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "node --loader ts-node/esm src/index.ts"
+  },
+  "keywords": ["mcp", "gcp", "google-cloud"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "google-auth-library": "^10.9.1",
+    "googleapis": "^173.0.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^7.0.2"
+  }
+}
