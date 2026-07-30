@@ -75,11 +75,37 @@ You can update these mappings at any time via the AI using the `ga4_set_site_pro
 
 ---
 
-## Connecting to an MCP Client (e.g., Claude Desktop)
+## Connecting to an MCP Client
 
-To use this server with an MCP client, add it to your client's configuration file.
+To use this server with an MCP client (such as Claude Desktop, Cursor, or Antigravity), add it to your client's configuration file.
 
-For **Claude Desktop** on macOS/Linux, edit `~/Library/Application Support/Claude/claude_desktop_config.json` (or the equivalent path for your OS):
+### Claude Desktop
+For macOS/Linux, edit `~/Library/Application Support/Claude/claude_desktop_config.json` (or the equivalent path for your OS):
+
+```json
+{
+  "mcpServers": {
+    "gcp-mcp": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/gcp-mcp/dist/index.js"
+      ],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "/absolute/path/to/your/service-account-key.json"
+      }
+    }
+  }
+}
+```
+
+### Cursor
+1. Open Cursor Settings > Features > MCP.
+2. Click **Add New MCP Server**.
+3. Choose **command** and enter: `node /absolute/path/to/gcp-mcp/dist/index.js`
+4. Make sure your `GOOGLE_APPLICATION_CREDENTIALS` environment variable is available to Cursor.
+
+### Antigravity
+Edit `~/.gemini/antigravity-cli/mcp.json`:
 
 ```json
 {
